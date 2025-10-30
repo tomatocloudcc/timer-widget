@@ -65,13 +65,24 @@ const Timer = () => {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-black border-gray-800 text-white">
-        {/* 时间显示区域 */}
+        {/* 时间显示区域 - 修复布局和抖动 */}
         <div className="text-center py-8">
-          <div className="text-6xl font-light tracking-wide mb-2">
-            {formattedTime.hours}:{formattedTime.minutes}
-          </div>
-          <div className="text-4xl font-light tracking-wide">
-            {formattedTime.seconds}.{formattedTime.milliseconds}
+          <div className="text-5xl font-mono font-light tracking-wider">
+            <span className="inline-block min-w-[3ch] text-right">
+              {formattedTime.hours}
+            </span>
+            :
+            <span className="inline-block min-w-[2ch] text-right">
+              {formattedTime.minutes}
+            </span>
+            :
+            <span className="inline-block min-w-[2ch] text-right">
+              {formattedTime.seconds}
+            </span>
+            .
+            <span className="inline-block min-w-[2ch] text-right text-4xl">
+              {formattedTime.milliseconds}
+            </span>
           </div>
         </div>
 
@@ -120,7 +131,7 @@ const Timer = () => {
                 return (
                   <div key={index} className="flex justify-between items-center text-white">
                     <span>计次 {laps.length - index}</span>
-                    <span className="font-medium">
+                    <span className="font-mono font-medium">
                       {formattedLap.hours}:{formattedLap.minutes}:{formattedLap.seconds}.{formattedLap.milliseconds}
                     </span>
                   </div>
